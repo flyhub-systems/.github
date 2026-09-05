@@ -1,0 +1,75 @@
+name: Bug
+description: Report and plan the correction of incorrect FlyHub behavior.
+title: ""
+labels: []
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Explain where the problem occurs and why it matters.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current Behavior
+      description: Describe what currently happens.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what should happen instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide the minimum steps or conditions needed to reproduce the problem.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: architecture_constraints
+    attributes:
+      label: Architecture Constraints
+      description: List relevant ADRs, security rules, or boundaries that the fix must preserve.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define how we know the bug is fixed.
+      placeholder: |
+        - [ ] Bug can no longer be reproduced
+        - [ ] Regression test added
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope
+      description: Identify related changes that should not be included in this fix.
+    validations:
+      required: false
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests
+      description: Describe regression and other tests expected for this fix.
+    validations:
+      required: true

@@ -1,0 +1,74 @@
+name: Feature / Task
+description: Plan a feature, technical task, refactor, documentation change, or engineering work.
+title: ""
+labels: []
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Explain the problem or background that makes this work necessary.
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: Describe the concrete outcome expected from this issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: List the functional or technical requirements that must be satisfied.
+      placeholder: |
+        - Requirement 1
+        - Requirement 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: architecture_constraints
+    attributes:
+      label: Architecture Constraints
+      description: List relevant ADRs, repository boundaries, security rules, or other constraints.
+      placeholder: |
+        - Follow ADR-0001
+        - Do not introduce new infrastructure
+        - Use existing authentication architecture
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define objective conditions that must be true for this issue to be considered complete.
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope
+      description: Explicitly list work that must not be included in this issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests
+      description: Describe the tests or verification expected for this change.
+      placeholder: |
+        - Unit tests
+        - Integration tests
+        - Manual verification
+    validations:
+      required: true
