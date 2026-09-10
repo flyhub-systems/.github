@@ -1,20 +1,27 @@
 name: Bug
-description: Report and plan the correction of incorrect FlyHub behavior.
+description: Report incorrect or unexpected behavior in an existing FlyHub capability.
 title: ""
-labels: []
+type: Bug
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep the report focused on reproducible behavior and expected outcome.
+
+        If this bug belongs to a larger delivery, link it to the appropriate Parent Issue using GitHub Sub-issues. Otherwise it may remain an independent Issue.
+
   - type: textarea
     id: context
     attributes:
       label: Context
-      description: Explain where the problem occurs and why it matters.
+      description: Describe where the problem occurs and any relevant background.
     validations:
       required: true
 
   - type: textarea
-    id: current_behavior
+    id: actual_behavior
     attributes:
-      label: Current Behavior
+      label: Actual behavior
       description: Describe what currently happens.
     validations:
       required: true
@@ -22,7 +29,7 @@ body:
   - type: textarea
     id: expected_behavior
     attributes:
-      label: Expected Behavior
+      label: Expected behavior
       description: Describe what should happen instead.
     validations:
       required: true
@@ -31,7 +38,7 @@ body:
     id: reproduction
     attributes:
       label: Reproduction
-      description: Provide the minimum steps or conditions needed to reproduce the problem.
+      description: Provide the smallest reliable sequence that reproduces the problem.
       placeholder: |
         1. ...
         2. ...
@@ -40,36 +47,40 @@ body:
       required: true
 
   - type: textarea
-    id: architecture_constraints
+    id: impact
     attributes:
-      label: Architecture Constraints
-      description: List relevant ADRs, security rules, or boundaries that the fix must preserve.
-    validations:
-      required: false
-
-  - type: textarea
-    id: acceptance_criteria
-    attributes:
-      label: Acceptance Criteria
-      description: Define how we know the bug is fixed.
-      placeholder: |
-        - [ ] Bug can no longer be reproduced
-        - [ ] Regression test added
+      label: Impact
+      description: Explain who or what is affected and the severity of the problem.
     validations:
       required: true
 
   - type: textarea
-    id: out_of_scope
+    id: constraints
     attributes:
-      label: Out of Scope
-      description: Identify related changes that should not be included in this fix.
+      label: Constraints
+      description: Record relevant accepted contracts or constraints that the fix must preserve. Use N/A when none apply.
+      placeholder: |
+        - Public API behavior...
+        - ADR...
+        - N/A
     validations:
-      required: false
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: Define observable conditions that prove the bug is fixed.
+      placeholder: |
+        - [ ] Reproduction no longer fails
+        - [ ] Regression coverage exists
+    validations:
+      required: true
 
   - type: textarea
     id: tests
     attributes:
-      label: Tests
-      description: Describe regression and other tests expected for this fix.
+      label: Tests / verification
+      description: Describe the regression coverage and other verification required.
     validations:
       required: true

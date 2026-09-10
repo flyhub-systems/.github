@@ -1,13 +1,22 @@
 name: Feature / Task
-description: Plan a feature, technical task, refactor, documentation change, or engineering work.
+description: Plan a feature, technical task, documentation change, refactor, infrastructure work, or research/spike.
 title: ""
-labels: []
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for Parent Issues, Sub-issues, or independent technical work.
+
+        When this Issue belongs to a larger delivery, link it to the appropriate Parent Issue using GitHub Sub-issues.
+
+        Keep the Issue focused on the delivery contract. Routine implementation details do not need to be prescribed unless they are required by an accepted decision.
+
   - type: textarea
     id: context
     attributes:
       label: Context
-      description: Explain the problem or background that makes this work necessary.
+      description: Explain the problem, current state, and why this work is needed.
+      placeholder: What problem or need led to this work?
     validations:
       required: true
 
@@ -15,7 +24,8 @@ body:
     id: goal
     attributes:
       label: Goal
-      description: Describe the concrete outcome expected from this issue.
+      description: State the outcome this Issue must achieve.
+      placeholder: What should be true when this Issue is complete?
     validations:
       required: true
 
@@ -23,7 +33,7 @@ body:
     id: requirements
     attributes:
       label: Requirements
-      description: List the functional or technical requirements that must be satisfied.
+      description: List the behavior or deliverables that are required.
       placeholder: |
         - Requirement 1
         - Requirement 2
@@ -33,20 +43,20 @@ body:
   - type: textarea
     id: architecture_constraints
     attributes:
-      label: Architecture Constraints
-      description: List relevant ADRs, repository boundaries, security rules, or other constraints.
+      label: Architecture constraints
+      description: Record accepted architectural, security, public API, schema, or repository constraints that apply. Use N/A when none apply.
       placeholder: |
-        - Follow ADR-0001
-        - Do not introduce new infrastructure
-        - Use existing authentication architecture
+        - Follow ADR-...
+        - Do not introduce...
+        - N/A
     validations:
       required: true
 
   - type: textarea
     id: acceptance_criteria
     attributes:
-      label: Acceptance Criteria
-      description: Define objective conditions that must be true for this issue to be considered complete.
+      label: Acceptance criteria
+      description: Define observable conditions that prove the work is complete.
       placeholder: |
         - [ ] Criterion 1
         - [ ] Criterion 2
@@ -56,19 +66,33 @@ body:
   - type: textarea
     id: out_of_scope
     attributes:
-      label: Out of Scope
-      description: Explicitly list work that must not be included in this issue.
+      label: Out of scope
+      description: Explicitly state related work that must not be included.
+      placeholder: |
+        - Future capability...
+        - Unrelated refactor...
+        - N/A
     validations:
       required: true
 
   - type: textarea
     id: tests
     attributes:
-      label: Tests
-      description: Describe the tests or verification expected for this change.
+      label: Tests / verification
+      description: Describe how the Issue should be verified. Use N/A only when testing is genuinely not applicable.
       placeholder: |
-        - Unit tests
-        - Integration tests
-        - Manual verification
+        - Unit tests...
+        - Integration tests...
+        - Manual verification...
     validations:
       required: true
+
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Readiness
+      options:
+        - label: The scope is small enough to implement and review independently.
+          required: true
+        - label: Any required human decision has already been made or is explicitly identified as a decision gate.
+          required: true
